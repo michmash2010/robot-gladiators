@@ -34,45 +34,45 @@ var fight = function() {
     if (enemyHealth <= 0) {
         window.alert(enemyName + " has died!");
     }
-    
     else {
         window.alert(enemyName + " still has " + enemyHealth + " health left.");
     }
 
-    // Remove player's health by subtracting  
-    if(playerHealth <= 0) {
-        window.alert(playerName + " has died!");
-    }
-
-    else {
-        window.alert(playerName + " still has " + playerHealth + "health left.");
-    }
-
+    // Remove player's health by subtracting the amount set in enemyAttack
+    playerHealth = playerHealth - enemyAttack;
+    console.log(
+        enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + "health remaining."
+    );
+    
     // check player's health
     if (playerHealth <= 0) {
         window.alert(playerName + " has died!");
     } else {
-        window.alert(playerName + " still has " + playerHealth + "health left.")
+        window.alert(playerName + " still has " + playerHealth + "health left.");
     }
-    
     // if player choses to skip
-} else if (promptFight === "skip" || promptFight === "SKIP") {
-    
-    //confirm player wants to skip
+} else if (promptFight === "skip" || promptFight === "SKIP") {  
+    //confirm player wants to 
     var confirmSkip = window.confirm("Are you sure you'd like to quit.?");
-    
+    window.alert(playerName + " has chosen to skip the fight!");
     // if yes (true), leave fight
     if (confirmSkip) {
-        window.alert(playerName + " has decided to skip this fight. Goodbye!");
-        
+        window.alert(playerName + " has decided to skip this fight. Goodbye!"); 
         //subtract money from playerMaoney for skipping
-        playerMoney = playerMoney -2;
+        playerMoney = playerMoney - 2;
     }
-    
     // if no (false), ask question again by running fight() again
     else {
         fight();
+    } 
+} else {
+    window.alert("You need to choose a valid option. Try again!");
+}        
+
     }
+
+    
+
     
 
 
@@ -81,7 +81,9 @@ var fight = function() {
     enemyHealth = enemyHealth - playerAttack;
 
     // Log a resulting message to the console so we know that it worked.
-    
+    console.log(
+        playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
+    );
 
 
     // Subtract the value of `enemyAttack` from the value of `playerHealth` and use that result to update the value in the `playerHealth` variable.
