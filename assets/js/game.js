@@ -186,12 +186,18 @@ var shop = function() {
   }
 };
 
-// start first game when page loads
-startGame();
 
 // function to generate a random numeric value
 var randomNumber = function(min, max) {
-    var value = Math.floor(Math.random() * (max - min + 1) + min;
+    var value = Math.floor(Math.random() * (max - min + 1) + min);
   
     return value;
   };
+
+// 
+document.onkeyup = function (e) {
+  console.log(e);
+}
+  
+// start first game when page loads
+startGame();
